@@ -41,14 +41,9 @@ int		main(int ac ,char **av)
 	t_background	bg;
 	t_circle		c;
 	FILE			*f;
-	char			*z;
-	char			rr;
-	int				sr;
-	int				i;
-	int				j;
-	float			x;
-	float			y;
-	float			d;
+	char			*z, rr;
+	int				sr, i, j;
+	float			x, y, d;
 
 	if (ac != 2)
 		return (str_error("Error: argument\n"));
