@@ -123,12 +123,12 @@ int		main(int ac, char **av)
 	if (!(f = fopen(av[1], "r")))
 		return (str_error("Error: Operation file corrupted\n"));
 	if (!get_background(&bg, f))
-		return (str_error("Error: Operation file corrupted\n"));
+		return (clear_all(f, NULL) && str_error("Error: Operation file corrupted\n"));
 ///**/printf("%d %d %c\n", bg.w, bg.h, bg.c);
 	if (!(z = malloc(sizeof(char) * bg.w * bg.h)))
-		return (str_error("Malloc failed\n"));
+		return (clear_all(f, NULL) && str_error("Malloc failed\n"));
 	if (!make_rendering(&z, bg, f))
-		return (str_error("Error: Operation file corrupted\n"));
+		return (clear_all(f, z) &&str_error("Error: Operation file corrupted\n"));
 	print_rendering(z, bg);
 	clear_all(f, z);
 	return (0);
